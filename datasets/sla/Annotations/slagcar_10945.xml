@@ -1,0 +1,33 @@
+<?xml version="1.0" ?><annotation>
+  <folder>QDCGJ</folder>
+  <filename>slagcar_10945.jpg</filename>
+  <source>
+    <database>Unknown</database>
+    <annotation>Unknown</annotation>
+    <image>Unknown</image>
+  </source>
+  <size>
+    <width>2560</width>
+    <height>1440</height>
+    <depth>3</depth>
+  </size>
+  <segmented>0</segmented>
+  <object>
+    <name>slagcar</name>
+    <bndbox>
+      <xmin>10</xmin>
+      <ymin>164</ymin>
+      <xmax>673</xmax>
+      <ymax>1349</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>slagcar</name>
+    <bndbox>
+      <xmin>954</xmin>
+      <ymin>5</ymin>
+      <xmax>1448</xmax>
+      <ymax>610</ymax>
+    </bndbox>
+  </object>
+</annotation>

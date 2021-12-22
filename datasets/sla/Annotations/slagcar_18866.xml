@@ -1,0 +1,35 @@
+<annotation>
+  <filename>slagcar_18866.jpg</filename>
+  <size>
+    <width>1920</width>
+    <height>1080</height>
+    <depth>3</depth>
+  </size>
+  <object>
+    <name>car</name>
+    <bndbox>
+      <xmin>40</xmin>
+      <ymin>451</ymin>
+      <xmax>195</xmax>
+      <ymax>569</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>slagcar</name>
+    <bndbox>
+      <xmin>345</xmin>
+      <ymin>304</ymin>
+      <xmax>1294</xmax>
+      <ymax>788</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>car</name>
+    <bndbox>
+      <xmin>229</xmin>
+      <ymin>465</ymin>
+      <xmax>470</xmax>
+      <ymax>623</ymax>
+    </bndbox>
+  </object>
+</annotation>

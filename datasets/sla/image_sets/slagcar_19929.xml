@@ -1,0 +1,26 @@
+<?xml version="1.0" ?><annotation>
+	<filename>slagcar_19929.jpg</filename>
+	<path>downLoads/202011241157-export-voc-XHslagcar20201027delogo/XHslagcar20201027_3721.jpg</path>
+	<source>
+		<database>XHslagcar20201027delogo</database>
+	</source>
+	<size>
+		<width>2560</width>
+		<height>1440</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>slagcar</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1939</xmin>
+			<ymin>275</ymin>
+			<xmax>2139</xmax>
+			<ymax>415</ymax>
+		</bndbox>
+	</object>
+	<labelType>鎻愪氦</labelType>
+</annotation>

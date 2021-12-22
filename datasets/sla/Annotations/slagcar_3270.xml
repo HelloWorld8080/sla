@@ -1,0 +1,17 @@
+<annotation>
+  <filename>slagcar_3270.jpg</filename>
+  <size>
+    <width>2560</width>
+    <height>1504</height>
+    <depth>3</depth>
+  </size>
+  <object>
+    <name>slagcar</name>
+    <bndbox>
+      <xmin>327</xmin>
+      <ymin>8</ymin>
+      <xmax>1480</xmax>
+      <ymax>1223</ymax>
+    </bndbox>
+  </object>
+</annotation>

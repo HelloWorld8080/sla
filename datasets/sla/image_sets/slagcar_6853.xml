@@ -1,0 +1,26 @@
+<annotation>
+  <filename>slagcar_6853.jpg</filename>
+  <size>
+    <width>2560</width>
+    <height>1504</height>
+    <depth>3</depth>
+  </size>
+  <object>
+    <name>slagcar</name>
+    <bndbox>
+      <xmin>270</xmin>
+      <ymin>8</ymin>
+      <xmax>1489</xmax>
+      <ymax>1343</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>truck</name>
+    <bndbox>
+      <xmin>241</xmin>
+      <ymin>4</ymin>
+      <xmax>800</xmax>
+      <ymax>263</ymax>
+    </bndbox>
+  </object>
+</annotation>

@@ -1,0 +1,35 @@
+<annotation>
+  <filename>slagcar_21469.jpg</filename>
+  <size>
+    <width>1920</width>
+    <height>1080</height>
+    <depth>3</depth>
+  </size>
+  <object>
+    <name>slagcar</name>
+    <bndbox>
+      <xmin>5</xmin>
+      <ymin>543</ymin>
+      <xmax>828</xmax>
+      <ymax>1077</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>car</name>
+    <bndbox>
+      <xmin>1330</xmin>
+      <ymin>646</ymin>
+      <xmax>1809</xmax>
+      <ymax>841</ymax>
+    </bndbox>
+  </object>
+  <object>
+    <name>electric_scooter</name>
+    <bndbox>
+      <xmin>1648</xmin>
+      <ymin>368</ymin>
+      <xmax>1692</xmax>
+      <ymax>411</ymax>
+    </bndbox>
+  </object>
+</annotation>
