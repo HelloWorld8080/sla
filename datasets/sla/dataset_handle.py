@@ -57,11 +57,12 @@ img_count = 0
 train_file = open(abs_path+'/train.txt', 'w')
 val_file = open(abs_path+'/val.txt', 'w')
 test_file = open(abs_path+'/test.txt', 'w')
+cur_file = "F:/deeplearn/object_check/yolo_v5/sla/datasets/sla"
 for file in os.listdir(abs_path+'/image_sets'):
     if file.split('.')[1]=='xml':
         full_file = os.path.join(abs_path + '/image_sets', file)
         new_full_file = os.path.join(abs_path+'/Annotations', file)
-        shutil.copy(full_file, new_full_file)
+        # shutil.copy(full_file, new_full_file)
         convert_annotation(file)
         # if xml_count < 100:
         #     pass
@@ -73,13 +74,13 @@ for file in os.listdir(abs_path+'/image_sets'):
     elif file.split('.')[1] == 'jpg':
         full_file = os.path.join(abs_path+'/image_sets', file)
         new_full_file = os.path.join(abs_path+'/images', file)
-        shutil.copy(full_file,new_full_file)
+        # shutil.copy(full_file,new_full_file)
         if img_count < 100:
-            train_file.write(abs_path + '/images/%s\n' % (file) )
+            train_file.write(cur_file + '/images/%s\n' % (file) )
         elif img_count < 150:
-            val_file.write(abs_path + '/images/%s\n' % (file) )
+            val_file.write(cur_file + '/images/%s\n' % (file) )
         else:
-            test_file.write(abs_path + '/images/%s\n' % (file) )
+            test_file.write(cur_file + '/images/%s\n' % (file) )
         img_count+=1
 train_file.close()
 val_file.close()
