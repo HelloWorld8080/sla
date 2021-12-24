@@ -1,11 +1,23 @@
 import xml.etree.ElementTree as ET
 import os
 from os import getcwd
+import shutil
 
 sets = ['train', 'val', 'test']
-classes = ["car", "slagcar"]   # 改成自己的类别
+classes = ["car", "slagcar"]  # 改成自己的类别
 abs_path = os.getcwd()
-print('fdf',abs_path)
+abs_path = abs_path if "project" in os.getcwd() else "F:/deeplearn/object_check/yolo_v5/sla/datasets/sla"
+or_imgs_path = "/home/data" if "project" in os.getcwd() else "F:/deeplearn/object_check/yolo_v5/sla/data/or_imgs"
+print('fdf', abs_path, or_imgs_path)
+
+
+def move_img(ori_img_path):
+    for i, j, k in os.walk(ori_img_path):
+        for k_i in k:
+            full_file = os.path.join(i, k_i)
+            new_full_file = os.path.join(abs_path + '/image_sets', k_i)
+            shutil.copy(full_file, new_full_file)
+
 
 def convert(size, box):
     dw = 1. / (size[0])
@@ -20,9 +32,10 @@ def convert(size, box):
     h = h * dh
     return x, y, w, h
 
+
 def convert_annotation(image_id):
-    in_file = open(abs_path+'/image_sets/%s' % (image_id), encoding='UTF-8')
-    out_file = open(abs_path+'/labels/%s.txt' % (image_id.split('.')[0]), 'w')
+    in_file = open(abs_path + '/image_sets/%s' % (image_id), encoding='UTF-8')
+    out_file = open(abs_path + '/labels/%s.txt' % (image_id.split('.')[0]), 'w')
     tree = ET.parse(in_file)
     root = tree.getroot()
     size = root.find('size')
@@ -49,20 +62,24 @@ def convert_annotation(image_id):
         bb = convert((w, h), b)
         out_file.write(str(cls_id) + " " + " ".join([str(a) for a in bb]) + '\n')
 
-print(len(os.listdir('./image_sets')))
+
+# print(len(os.listdir('./image_sets')))
+
 import shutil
+
+#/home/data
+move_img(or_imgs_path)
 xml_count = 0
 img_count = 0
 
-train_file = open(abs_path+'/train.txt', 'w')
-val_file = open(abs_path+'/val.txt', 'w')
-test_file = open(abs_path+'/test.txt', 'w')
-cur_file = "F:/deeplearn/object_check/yolo_v5/sla/datasets/sla"
-for file in os.listdir(abs_path+'/image_sets'):
-    if file.split('.')[1]=='xml':
+train_file = open(abs_path + '/train.txt', 'w')
+val_file = open(abs_path + '/val.txt', 'w')
+test_file = open(abs_path + '/test.txt', 'w')
+for file in os.listdir(abs_path + '/image_sets'):
+    if file.split('.')[1] == 'xml':
         full_file = os.path.join(abs_path + '/image_sets', file)
-        new_full_file = os.path.join(abs_path+'/Annotations', file)
-        # shutil.copy(full_file, new_full_file)
+        new_full_file = os.path.join(abs_path + '/Annotations', file)
+        shutil.copy(full_file, new_full_file)
         convert_annotation(file)
         # if xml_count < 100:
         #     pass
@@ -70,29 +87,18 @@ for file in os.listdir(abs_path+'/image_sets'):
         # elif xml_count < 150:
         #     pass
         #     # convert_annotation(file)
-        xml_count+=1
+        xml_count += 1
     elif file.split('.')[1] == 'jpg':
-        full_file = os.path.join(abs_path+'/image_sets', file)
-        new_full_file = os.path.join(abs_path+'/images', file)
-        # shutil.copy(full_file,new_full_file)
+        full_file = os.path.join(abs_path + '/image_sets', file)
+        new_full_file = os.path.join(abs_path + '/images', file)
+        shutil.copy(full_file, new_full_file)
         if img_count < 100:
-            train_file.write(cur_file + '/images/%s\n' % (file) )
+            train_file.write(abs_path + '/images/%s\n' % (file))
         elif img_count < 150:
-            val_file.write(cur_file + '/images/%s\n' % (file) )
+            val_file.write(abs_path + '/images/%s\n' % (file))
         else:
-            test_file.write(cur_file + '/images/%s\n' % (file) )
-        img_count+=1
+            test_file.write(abs_path + '/images/%s\n' % (file))
+        img_count += 1
 train_file.close()
 val_file.close()
 test_file.close()
-# wd = getcwd()
-
-# for image_set in sets:
-#     if not os.path.exists('/deeplearn/object_check/yolov5_2/yolov5/datasets/sla/labels/'):
-#         os.makedirs('/deeplearn/object_check/yolov5_2/yolov5/datasets/sla/labels/')
-#     image_ids = open('/deeplearn/object_check/yolov5_2/yolov5/datasets/sla/%s.txt' % (image_set)).read().strip().split()
-#     list_file = open('datasets/sla/%s.txt' % (image_set), 'w')
-#     for image_id in image_ids:
-#         list_file.write(abs_path + '/paper_data/images/%s.jpg\n' % (image_id))
-#         convert_annotation(image_id)
-#     list_file.close()
