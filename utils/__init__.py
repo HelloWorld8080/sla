@@ -15,7 +15,7 @@ def notebook_init(verbose=True):
     from utils.torch_utils import select_device  # imports
 
     check_requirements(('psutil', 'IPython'))
-    import psutil
+    import psutilx
     from IPython import display  # to display images and clear console output
 
     if is_colab():
